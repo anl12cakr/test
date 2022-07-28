@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Register</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+
+  <script src="vendor/jquery/jquery.js"></script>
+    <script>
+    $(function(){
+      $("#side").load("sidebar.html");
+    });
+
+    </script>
+</head>
+
+<body class="bg-gradient-primary">
+    <div id="wrapper">
+        <!--slider kısmı -->
+        <div id="side"></div>
+        
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div class="container">
+
+                <div class="card o-hidden border-0 shadow-lg my-5 p-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                            <div class="col-lg-7">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Öğretmen Ekle</h1>
+                                    </div>
+                                    <form class="user" method="POST" action="http://localhost:5500/process_post">
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input type="text" class="form-control form-control-user"
+                                                    name="teacherName" id="teacherName" placeholder="İsim">
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control form-control-user"
+                                                    name="teacherSurname" id="teacherSurname" placeholder="Soyisim">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control form-control-user"
+                                                name="teacherEmail" id="teacherEmail" placeholder="Email Adresi">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="tel" class="form-control form-control-user" name="teacherPhone"
+                                                id="teacherPhone" placeholder="(5XX)XXXXXXX">
+                                        </div>
+
+                                        <select data-placeholder="Gün Seçin..." multiple
+                                            class="chosen-select form-control form-control-chosen" name="days[]"
+                                            id="days" onClick="daysFunction(this)">
+                                            <option value="0">Pazartesi</option>
+                                            <option value="1">Salı</option>
+                                            <option value="2">Çarşamba</option>
+                                            <option value="3">Perşembe</option>
+                                            <option value="4">Cuma</option>
+                                            <option value="5">Cumartesi</option>
+                                            <option value="6">Pazar</option>
+                                        </select>
+                                        <div id="pzt" class="form-group" style="visibility: hidden;">
+                                            <select data-placeholder="Pazartesi için saat seçin..." multiple
+                                                class="chosen-select form-control form-control-chosen" name="pztHours[]"
+                                                id="pztHours">
+                                                <option value="0">8:00 - 8:30</option>
+                                                <option value="1">8:30 - 9:00</option>
+                                                <option value="2">9:00 - 9:30</option>
+                                                <option value="3">9:30 - 10:00</option>
+                                                <option value="4">10:00 - 10:30</option>
+                                                <option value="5">10:30 - 11:00</option>
+                                                <option value="6">11:00 - 11:30</option>
+                                                <option value="7">11:30 - 12:00</option>
+                                                <option value="8">12:00 - 12:30</option>
+                                                <option value="9">12:30 - 13:00</option>
+                                                <option value="10">13:00 - 13:30</option>
+                                                <option value="11">13:30 - 14:00</option>
+                                                <option value="12">14:00 - 14:30</option>
+                                                <option value="13">14:30 - 15:00</option>
+                                                <option value="14">15:00 - 15:30</option>
+                                                <option value="15">15:30 - 16:00</option>
+                                                <option value="16">16:00 - 16:30</option>
+                                                <option value="17">16:30 - 17:00</option>
+                                                <option value="18">17:00 - 17:30</option>
+                                                <option value="19">17:30 - 18:00</option>
+                                                <option value="20">18:00 - 18:30</option>
+                                                <option value="21">18:30 - 19:00</option>
+                                                <option value="22">19:00 - 19:30</option>
+                                                <option value="23">19:30 - 20:00</option>
+                                                <option value="24">20:00 - 20:30</option>
+                                                <option value="23">20:30 - 21:00</option>
+                                                <option value="24">21:00 - 21:30</option>
+                                                <option value="23">21:30 - 22:00</option>
+                                            </select>
+                                        </div>
+
+                                        <div id="sali" class="form-group" style="visibility: hidden;">
+                                            <select data-placeholder="Salı için saat seçin..." multiple
+                                                class="chosen-select form-control form-control-chosen" name="saliHours[]"
+                                                id="saliHours">
+                                                <option value="0">8:00 - 8:30</option>
+                                                <option value="1">8:30 - 9:00</option>
+                                                <option value="2">9:00 - 9:30</option>
+                                                <option value="3">9:30 - 10:00</option>
+                                                <option value="4">10:00 - 10:30</option>
+                                                <option value="5">10:30 - 11:00</option>
+                                                <option value="6">11:00 - 11:30</option>
+                                                <option value="7">11:30 - 12:00</option>
+                                                <option value="8">12:00 - 12:30</option>
+                                                <option value="9">12:30 - 13:00</option>
+                                                <option value="10">13:00 - 13:30</option>
+                                                <option value="11">13:30 - 14:00</option>
+                                                <option value="12">14:00 - 14:30</option>
+                                                <option value="13">14:30 - 15:00</option>
+                                                <option value="14">15:00 - 15:30</option>
+                                                <option value="15">15:30 - 16:00</option>
+                                                <option value="16">16:00 - 16:30</option>
+                                                <option value="17">16:30 - 17:00</option>
+                                                <option value="18">17:00 - 17:30</option>
+                                                <option value="19">17:30 - 18:00</option>
+                                                <option value="20">18:00 - 18:30</option>
+                                                <option value="21">18:30 - 19:00</option>
+                                                <option value="22">19:00 - 19:30</option>
+                                                <option value="23">19:30 - 20:00</option>
+                                                <option value="24">20:00 - 20:30</option>
+                                                <option value="23">20:30 - 21:00</option>
+                                                <option value="24">21:00 - 21:30</option>
+                                                <option value="23">21:30 - 22:00</option>
+                                            </select>
+                                        </div>
+
+                                        <div id="carsamba" class="form-group" style="visibility: hidden;">
+                                            <select data-placeholder="Çarşamba için saat seçin..." multiple
+                                                class="chosen-select form-control form-control-chosen" name="carsambaHours[]"
+                                                id="carsambaHours">
+                                                <option value="0">8:00 - 8:30</option>
+                                                <option value="1">8:30 - 9:00</option>
+                                                <option value="2">9:00 - 9:30</option>
+                                                <option value="3">9:30 - 10:00</option>
+                                                <option value="4">10:00 - 10:30</option>
+                                                <option value="5">10:30 - 11:00</option>
+                                                <option value="6">11:00 - 11:30</option>
+                                                <option value="7">11:30 - 12:00</option>
+                                                <option value="8">12:00 - 12:30</option>
+                                                <option value="9">12:30 - 13:00</option>
+                                                <option value="10">13:00 - 13:30</option>
+                                                <option value="11">13:30 - 14:00</option>
+                                                <option value="12">14:00 - 14:30</option>
+                                                <option value="13">14:30 - 15:00</option>
+                                                <option value="14">15:00 - 15:30</option>
+                                                <option value="15">15:30 - 16:00</option>
+                                                <option value="16">16:00 - 16:30</option>
+                                                <option value="17">16:30 - 17:00</option>
+                                                <option value="18">17:00 - 17:30</option>
+                                                <option value="19">17:30 - 18:00</option>
+                                                <option value="20">18:00 - 18:30</option>
+                                                <option value="21">18:30 - 19:00</option>
+                                                <option value="22">19:00 - 19:30</option>
+                                                <option value="23">19:30 - 20:00</option>
+                                                <option value="24">20:00 - 20:30</option>
+                                                <option value="23">20:30 - 21:00</option>
+                                                <option value="24">21:00 - 21:30</option>
+                                                <option value="23">21:30 - 22:00</option>
+                                            </select>
+                                        </div>
+
+                                        <div id="persembe" class="form-group" style="visibility: hidden;">
+                                            <select data-placeholder="Perşembe için saat seçin..." multiple
+                                                class="chosen-select form-control form-control-chosen" name="persembeHours[]"
+                                                id="persembeHours">
+                                                <option value="0">8:00 - 8:30</option>
+                                                <option value="1">8:30 - 9:00</option>
+                                                <option value="2">9:00 - 9:30</option>
+                                                <option value="3">9:30 - 10:00</option>
+                                                <option value="4">10:00 - 10:30</option>
+                                                <option value="5">10:30 - 11:00</option>
+                                                <option value="6">11:00 - 11:30</option>
+                                                <option value="7">11:30 - 12:00</option>
+                                                <option value="8">12:00 - 12:30</option>
+                                                <option value="9">12:30 - 13:00</option>
+                                                <option value="10">13:00 - 13:30</option>
+                                                <option value="11">13:30 - 14:00</option>
+                                                <option value="12">14:00 - 14:30</option>
+                                                <option value="13">14:30 - 15:00</option>
+                                                <option value="14">15:00 - 15:30</option>
+                                                <option value="15">15:30 - 16:00</option>
+                                                <option value="16">16:00 - 16:30</option>
+                                                <option value="17">16:30 - 17:00</option>
+                                                <option value="18">17:00 - 17:30</option>
+                                                <option value="19">17:30 - 18:00</option>
+                                                <option value="20">18:00 - 18:30</option>
+                                                <option value="21">18:30 - 19:00</option>
+                                                <option value="22">19:00 - 19:30</option>
+                                                <option value="23">19:30 - 20:00</option>
+                                                <option value="24">20:00 - 20:30</option>
+                                                <option value="23">20:30 - 21:00</option>
+                                                <option value="24">21:00 - 21:30</option>
+                                                <option value="23">21:30 - 22:00</option>
+                                            </select>
+                                        </div>
+
+                                        <div id="cuma" class="form-group" style="visibility: hidden;">
+                                            <select data-placeholder="Cuma için saat seçin..." multiple
+                                                class="chosen-select form-control form-control-chosen" name="cumaHours[]"
+                                                id="cumaHours">
+                                                <option value="0">8:00 - 8:30</option>
+                                                <option value="1">8:30 - 9:00</option>
+                                                <option value="2">9:00 - 9:30</option>
+                                                <option value="3">9:30 - 10:00</option>
+                                                <option value="4">10:00 - 10:30</option>
+                                                <option value="5">10:30 - 11:00</option>
+                                                <option value="6">11:00 - 11:30</option>
+                                                <option value="7">11:30 - 12:00</option>
+                                                <option value="8">12:00 - 12:30</option>
+                                                <option value="9">12:30 - 13:00</option>
+                                                <option value="10">13:00 - 13:30</option>
+                                                <option value="11">13:30 - 14:00</option>
+                                                <option value="12">14:00 - 14:30</option>
+                                                <option value="13">14:30 - 15:00</option>
+                                                <option value="14">15:00 - 15:30</option>
+                                                <option value="15">15:30 - 16:00</option>
+                                                <option value="16">16:00 - 16:30</option>
+                                                <option value="17">16:30 - 17:00</option>
+                                                <option value="18">17:00 - 17:30</option>
+                                                <option value="19">17:30 - 18:00</option>
+                                                <option value="20">18:00 - 18:30</option>
+                                                <option value="21">18:30 - 19:00</option>
+                                                <option value="22">19:00 - 19:30</option>
+                                                <option value="23">19:30 - 20:00</option>
+                                                <option value="24">20:00 - 20:30</option>
+                                                <option value="23">20:30 - 21:00</option>
+                                                <option value="24">21:00 - 21:30</option>
+                                                <option value="23">21:30 - 22:00</option>
+                                            </select>
+                                        </div>
+
+                                        <div id="cumartesi" class="form-group" style="visibility: hidden;">
+                                            <select data-placeholder="Cumartesi için saat seçin..." multiple
+                                                class="chosen-select form-control form-control-chosen" name="cumartesiHours[]"
+                                                id="cumartesiHours">
+                                                <option value="0">8:00 - 8:30</option>
+                                                <option value="1">8:30 - 9:00</option>
+                                                <option value="2">9:00 - 9:30</option>
+                                                <option value="3">9:30 - 10:00</option>
+                                                <option value="4">10:00 - 10:30</option>
+                                                <option value="5">10:30 - 11:00</option>
+                                                <option value="6">11:00 - 11:30</option>
+                                                <option value="7">11:30 - 12:00</option>
+                                                <option value="8">12:00 - 12:30</option>
+                                                <option value="9">12:30 - 13:00</option>
+                                                <option value="10">13:00 - 13:30</option>
+                                                <option value="11">13:30 - 14:00</option>
+                                                <option value="12">14:00 - 14:30</option>
+                                                <option value="13">14:30 - 15:00</option>
+                                                <option value="14">15:00 - 15:30</option>
+                                                <option value="15">15:30 - 16:00</option>
+                                                <option value="16">16:00 - 16:30</option>
+                                                <option value="17">16:30 - 17:00</option>
+                                                <option value="18">17:00 - 17:30</option>
+                                                <option value="19">17:30 - 18:00</option>
+                                                <option value="20">18:00 - 18:30</option>
+                                                <option value="21">18:30 - 19:00</option>
+                                                <option value="22">19:00 - 19:30</option>
+                                                <option value="23">19:30 - 20:00</option>
+                                                <option value="24">20:00 - 20:30</option>
+                                                <option value="23">20:30 - 21:00</option>
+                                                <option value="24">21:00 - 21:30</option>
+                                                <option value="23">21:30 - 22:00</option>
+                                            </select>
+                                        </div>
+
+                                        <div id="pazar" class="form-group" style="visibility: hidden;">
+                                            <select data-placeholder="Pazar için saat seçin..." multiple
+                                                class="chosen-select form-control form-control-chosen" name="pazarHours[]"
+                                                id="pazarHours">
+                                                <option value="0">8:00 - 8:30</option>
+                                                <option value="1">8:30 - 9:00</option>
+                                                <option value="2">9:00 - 9:30</option>
+                                                <option value="3">9:30 - 10:00</option>
+                                                <option value="4">10:00 - 10:30</option>
+                                                <option value="5">10:30 - 11:00</option>
+                                                <option value="6">11:00 - 11:30</option>
+                                                <option value="7">11:30 - 12:00</option>
+                                                <option value="8">12:00 - 12:30</option>
+                                                <option value="9">12:30 - 13:00</option>
+                                                <option value="10">13:00 - 13:30</option>
+                                                <option value="11">13:30 - 14:00</option>
+                                                <option value="12">14:00 - 14:30</option>
+                                                <option value="13">14:30 - 15:00</option>
+                                                <option value="14">15:00 - 15:30</option>
+                                                <option value="15">15:30 - 16:00</option>
+                                                <option value="16">16:00 - 16:30</option>
+                                                <option value="17">16:30 - 17:00</option>
+                                                <option value="18">17:00 - 17:30</option>
+                                                <option value="19">17:30 - 18:00</option>
+                                                <option value="20">18:00 - 18:30</option>
+                                                <option value="21">18:30 - 19:00</option>
+                                                <option value="22">19:00 - 19:30</option>
+                                                <option value="23">19:30 - 20:00</option>
+                                                <option value="24">20:00 - 20:30</option>
+                                                <option value="23">20:30 - 21:00</option>
+                                                <option value="24">21:00 - 21:30</option>
+                                                <option value="23">21:30 - 22:00</option>
+                                            </select>
+                                        </div>
+
+                                        <input type="submit" class="btn btn-primary btn-lg form-control" value="Kaydet">
+                                        </input>
+                                        <hr>
+                                    </form>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link href="src/jquery-weekdays.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+    <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet" />
+
+    <script>
+    $(".chosen-select").chosen({
+        no_results_text: "Oops, nothing found!"
+    });
+    var days = $('#days');
+    days.change(function() {
+        var unselectedValues = $(this).find('option:selected').map(function() {
+            return this.value;
+        }).get();
+
+        if(unselectedValues.includes("0"))
+        {
+            $('#pzt').css("visibility", "visible");
+        } 
+        else {
+            $('#pzt').css("visibility", "hidden");
+        }
+
+        if(unselectedValues.includes("1"))
+        {
+            $('#sali').css("visibility", "visible");
+        } 
+        else {
+            $('#sali').css("visibility", "hidden");
+        }
+
+        if(unselectedValues.includes("2"))
+        {
+            $('#carsamba').css("visibility", "visible");
+        } 
+        else {
+            $('#carsamba').css("visibility", "hidden");
+        }
+
+        if(unselectedValues.includes("3"))
+        {
+            $('#persembe').css("visibility", "visible");
+        } 
+        else {
+            $('#persembe').css("visibility", "hidden");
+        }
+
+        if(unselectedValues.includes("4"))
+        {
+            $('#cuma').css("visibility", "visible");
+        } 
+        else {
+            $('#cuma').css("visibility", "hidden");
+        }
+
+        if(unselectedValues.includes("5"))
+        {
+            $('#cumartesi').css("visibility", "visible");
+        } 
+        else {
+            $('#cumartesi').css("visibility", "hidden");
+        }
+
+        if(unselectedValues.includes("6"))
+        {
+            $('#pazar').css("visibility", "visible");
+        } 
+        else {
+            $('#pazar').css("visibility", "hidden");
+        }
+    });
+    </script>
+</body>
+
+</html>

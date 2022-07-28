@@ -1,0 +1,20 @@
+{
+  "name": "projectx",
+  "version": "1.0.0",
+  "description": "[SB Admin 2](https://startbootstrap.com/theme/sb-admin-2/) is an open source admin dashboard theme for [Bootstrap](https://getbootstrap.com/) created by [Start Bootstrap](https://startbootstrap.com/).",
+  "main": "ekle2.js",
+  "scripts": {
+    "start": "node ekle2.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
+    "mysql": "^2.18.1",
+    "pug": "^3.0.2",
+    "vue-multiselect": "^2.1.6"
+  },
+  "devDependencies": {}
+}
